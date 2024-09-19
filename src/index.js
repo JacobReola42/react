@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+/* ==== vanilla ==== */
+
 // import React from "react";
 // import ReactDOM from "react-dom/client";
 
@@ -11,22 +14,44 @@ import ReactDOM from "react-dom/client";
 
 // root.render(<Greeting />);
 
+/* ==== formatted ==== */
+
+// function Greeting() {
+//   return (
+//     <>
+//       <div className="someValue">
+//         <h3>hello people</h3>
+//         <ul>
+//           <li>
+//             <a href="#">hello world</a>
+//           </li>
+//         </ul>
+//       </div>
+//       <h2>hello world</h2>
+//       <input type="text" name="" id="" />
+//     </>
+//   );
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// root.render(<Greeting />);
+
+/* ==== nested ==== */
+
 function Greeting() {
   return (
-    <>
-      <div className="someValue">
-        <h3>hello people</h3>
-        <ul>
-          <li>
-            <a href="#">hello world</a>
-          </li>
-        </ul>
-      </div>
-      <h2>hello world</h2>
-      <input type="text" name="" id="" />
-    </>
+    <div>
+      <Person />
+      <Message />
+    </div>
   );
 }
+
+const Person = () => <h2>john doe</h2>;
+const Message = () => {
+  return <p>this is my message</p>;
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
