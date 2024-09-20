@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+const author = "Jordan Moore";
+const title = "Interesting Facts For Curious Minds";
+const img = "/book-1.jpg"; // Remove 'public' from the path
 
 /* ==== vanilla ==== */
 
@@ -98,37 +101,65 @@ import "./index.css";
 
 /* ==== book list v2 ==== */
 
+// function BookList() {
+//   return (
+//     <section className="booklist">
+//       <Book />
+//       <Book />
+//       <Book />
+//       <Book />
+//     </section>
+//   );
+// }
+
+// const Book = () => {
+//   return (
+//     <article className="book">
+//       <Image />
+//       <Title />
+//       <Author />
+//     </article>
+//   );
+// };
+
+// const Image = () => (
+//   <img
+//     src="https://images-na.ssl-images-amazon.com/images/I/71m+Qtq+HrL._AC_UL900_SR900,600_.jpg"
+//     alt="Interesting Facts For Curious Minds"
+//   />
+// );
+// const Title = () => {
+//   return <h2>Interesting Facts For Curious Minds</h2>;
+// };
+// const Author = () => <h4>Jordan Moore </h4>;
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// root.render(<BookList />);
+
+/* ==== props ==== */
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book job="developer" />
+      <Book title="random title" number={22} />
     </section>
   );
 }
-
-const Book = () => {
+const Book = (props) => {
+  console.log(props);
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+      <p>{props.job}</p>
+      <p>{props.title}</p>
+      <p>{props.number}</p>
     </article>
   );
 };
-
-const Image = () => (
-  <img
-    src="https://images-na.ssl-images-amazon.com/images/I/71m+Qtq+HrL._AC_UL900_SR900,600_.jpg"
-    alt="Interesting Facts For Curious Minds"
-  />
-);
-const Title = () => {
-  return <h2>Interesting Facts For Curious Minds</h2>;
-};
-const Author = () => <h4>Jordan Moore </h4>;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
